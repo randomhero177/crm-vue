@@ -1,8 +1,26 @@
 <template>
-  <div id="app">
-    <router-view/>
-  </div>
+    <div id="app">
+                {{ layout }}
+            <component :is="layout">
+                <router-view/>
+            </component>
+    </div>
 </template>
+
+<script>
+    import Empty from '@/layouts/Empty'
+    import MainLayout from '@/layouts/MainLayout'
+    export default {
+        computed: {
+            layout() {
+                return (this.$route.meta.layout || 'empty')
+            }
+        },
+        components: {
+            Empty, MainLayout,
+        },
+    }
+</script>
 
 <style lang="scss">
     @import '~materialize-css/dist/css/materialize.min.css';
