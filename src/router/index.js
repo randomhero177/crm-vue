@@ -1,8 +1,5 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import Home from '../views/Home.vue';
-import Login from '../views/Login.vue';
-import Categories from '../views/Categories.vue';
 
 Vue.use(VueRouter);
 
@@ -10,7 +7,10 @@ const routes = [
   {
     path: '/',
     name: 'Home',
-    component: Home,
+    component: () => import('../views/Home.vue'),
+    meta: {
+        layout: 'main-layout',
+    },
   },
   {
       path: '/login',
@@ -27,6 +27,46 @@ const routes = [
           layout: 'main-layout',
       },
       component: () => import('../views/Categories.vue'),
+  },
+  {
+      path: '/profile',
+      name: 'Profile',
+      meta: {
+          layout: 'main-layout',
+      },
+      component: () => import('../views/Profile.vue'),
+  },
+  {
+      path: '/record',
+      name: 'Record',
+      meta: {
+          layout: 'main-layout',
+      },
+      component: () => import('../views/Record.vue'),
+  },
+  {
+      path: '/history',
+      name: 'History',
+      meta: {
+          layout: 'main-layout',
+      },
+      component: () => import('../views/History.vue'),
+  },
+  {
+      path: '/planning',
+      name: 'Planning',
+      meta: {
+          layout: 'main-layout',
+      },
+      component: () => import('../views/Planning.vue'),
+  },
+  {
+      path: '/register',
+      name: 'Register',
+      meta: {
+          layout: 'empty',
+      },
+      component: () => import('../views/Register.vue'),
   },
 ];
 

@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="page-title">
-          <h3>Категории 111</h3>
+          <h3>Категории</h3>
         </div>
         <section>
           <div class="row">
